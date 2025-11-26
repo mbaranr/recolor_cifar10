@@ -1,9 +1,15 @@
 # Generative Approaches to CIFAR10 Colourization
-This repository showcases two approaches to the coulourization task of CIFAR10 images: Auto Encoder U-Net and Conditional GAN. Over the last decade, the process of automatic colorization has been studied thoroughly due to its vast applications such as colourization of grayscale images and restoration of aged and/or degraded images. This problem is highly ill-posed due to the extremely large degrees of freedom during the assignment of color information. In this approach, I attempted to fully generalize this procedure using a conditional Deep Convolutional Generative Adversarial Network (DCGAN). The network is trained over a dataset that is publicly available, CIFAR10.
+This repository showcases two approaches to the colorization task of CIFAR10 images: Auto Encoders and Deep Conditional Generative Adversarial Networks. 
+
+Over the last decade, the process of automatic colorization has been studied thoroughly due to its potential for restoration of aged and/or degraded images. This problem is highly ill-posed due to the extremely large degrees of freedom during the assignment of color information. 
+
+I attempted to fully generalize this procedure over a publicly available dataset: `CIFAR10`.
 
 ## Architecture
 
-The GAN architecture uses a **U-Net**, introduced by ([Ronneberger et al., 2015](https://arxiv.org/abs/1505.04597), like fully convolutional architecture  (with concatenation of opposite layers) for the generator, and the G loss function is L1 regularized, which produces an effect where the generator is forced to produce results that are similar to the ground truth on the pixel level. This will theoretically preserve the structure of the original images and prevent the generator from assigning arbitrary colors to pixels just to fool the discriminator. The generator takes the grayscaled image as an input, while the discrimator takes either the original image or generated image plus the condition, which is the grayscaled image in this case.
+The GAN follows a U-Net architecture, introduced by (Ronneberger et al., 2015). The generator showcases convolutional layers concatenated at opposite sides and a L1 regularized loss function, forcing it to produce results that are similar to the ground truth on a pixel level. 
+
+Theoretically, this will preserve the structure of the original images and prevent the generator from assigning arbitrary colors to pixels just to fool the discriminator. The generator takes the grayscaled image as an input, while the discrimator takes either the original image or generated image plus the condition, which is the grayscaled image in this case.
 
 <div align="center">
   <img src="https://github.com/M4mbo/Generative_Approaches_to_CIFAR10_Colourization/assets/115642529/89e36747-deb9-4ca4-a300-02a4b941312d" width="400"/>
@@ -12,7 +18,6 @@ The GAN architecture uses a **U-Net**, introduced by ([Ronneberger et al., 2015]
 
 
 ### DCGAN 
-
 
 <div align="center">
   <img src="https://github.com/M4mbo/Generative-Colourization-Approaches-to-CIFAR10/assets/115642529/0e01f3af-3d12-4d28-981d-7041f209c4d5" height="350"/>
